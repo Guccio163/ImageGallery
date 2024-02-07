@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            minHeight="550.0" minWidth="850.0"
+            fx:controller="agh.edu.pl.thumbnail.app.controllers.GalleryController">
+    <left>
+        <VBox alignment="CENTER">
+            <VBox alignment="CENTER">
+                <Button text="Get Thumbnails" onAction="#getThumbnails" prefWidth="120" />
+                <padding>
+                    <Insets top="10" bottom="10"/>
+                </padding>
+            </VBox>
+            <VBox alignment="CENTER">
+                <Button fx:id = "addImagesButton" text="Add Images" onAction="#sendFiles" prefWidth="120" disable="true"/>
+                <padding>
+                    <Insets top="10" bottom="10"/>
+                </padding>
+            </VBox>
+            <VBox alignment="CENTER">
+                    <Button text="Refresh" onAction="#refreshList" prefWidth="120" />
+                <padding>
+                    <Insets top="10" bottom="10"/>
+                </padding>
+            </VBox>
+            <Label text="Thumbnails size:"/>
+            <HBox alignment="CENTER">
+                <Button text="S" onAction="#chSmallS" prefWidth="60" />
+                <Button text="M" onAction="#chMediumS" prefWidth="60" />
+                <Button text="L" onAction="#chLargeS" prefWidth="60" />
+            </HBox>
+            <Label text="Thumbnails quality:"/>
+            <HBox alignment="CENTER">
+                <Button text="Low" onAction="#chLowQ" prefWidth="60" />
+                <Button text="Med" onAction="#chMediumQ" prefWidth="60" />
+                <Button text="High" onAction="#chHighQ" prefWidth="60" />
+            </HBox>
+            <StackPane fx:id="dragPane">
+                <Rectangle width="200" height="200"/>
+            </StackPane>
+            <ListView fx:id="imagesListView" prefWidth="100"/>
+        </VBox>
+    </left>
+    <center>
+        <HBox>
+        <ListView fx:id="folderListView" prefWidth="300"/>
+        <ListView fx:id="photoListView" prefWidth="300"/>
+        </HBox>
+    </center>
+</BorderPane>

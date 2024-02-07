@@ -1,0 +1,22 @@
+version: '3.8'
+
+networks:
+  default:
+    name: image-processing-network
+
+services:
+  database:
+    container_name: image-processing.database
+    image: postgres:16
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=image-processing
+  server:
+    container_name: image-processing.server
+    build: ./api
+    ports:
+      - 8080:8080
